@@ -1,13 +1,13 @@
-package br.com.gerenciadortarefasbckend.service;
+package br.com.gerenciadortarefasbckend.tarefa.service;
 
-import br.com.gerenciadortarefasbckend.entity.Tarefa;
-import br.com.gerenciadortarefasbckend.repository.TarefaRepository;
+import br.com.gerenciadortarefasbckend.tarefa.entity.Tarefa;
+import br.com.gerenciadortarefasbckend.tarefa.repository.TarefaRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class TarefaService {
+public class TarefaService implements TarefaIService {
 
     private final TarefaRepository repository;
 
