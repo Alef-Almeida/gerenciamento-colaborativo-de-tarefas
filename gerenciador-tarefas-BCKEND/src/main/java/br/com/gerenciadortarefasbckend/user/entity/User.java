@@ -1,5 +1,6 @@
 package br.com.gerenciadortarefasbckend.user.entity;
 
+import br.com.gerenciadortarefasbckend.projeto.entity.Projeto;
 import br.com.gerenciadortarefasbckend.tarefa.entity.Tarefa;
 import jakarta.persistence.*;
 import lombok.*;
@@ -8,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "users") // Renomeia a tabela para "users"
+@Table(name = "users")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -26,4 +27,7 @@ public class User {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Tarefa> tarefas = new ArrayList<>();
+
+    @ManyToMany(mappedBy = "participantes")
+    private List<Projeto> projetos = new ArrayList<>();
 }
