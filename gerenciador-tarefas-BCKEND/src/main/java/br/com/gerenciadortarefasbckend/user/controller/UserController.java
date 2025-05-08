@@ -10,13 +10,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
+// Define a classe como um controlador REST com mapeamento base "/api/users"
 @RestController
 @RequestMapping("/api/users")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*") // Permite requisições de qualquer origem
 public class UserController {
 
+    // Injeta o serviço e o mapeador de usuários via construtor
     private final UserService userService;
     private final UserMapper userMapper;
 
@@ -25,6 +26,7 @@ public class UserController {
         this.userMapper = userMapper;
     }
 
+    // Cria um novo usuário a partir de um DTO, retornando status 201
     @PostMapping
     public ResponseEntity<UserResponseDTO> create(@RequestBody UserRequestDTO dto) {
         User user = userMapper.toEntity(dto);
@@ -33,13 +35,14 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.CREATED).body(responseDTO);
     }
 
+    // Lista todos os usuários, retornando uma lista de DTOs
     @GetMapping
     public ResponseEntity<List<UserResponseDTO>> listar() {
         List<UserResponseDTO> users = userService.listar();
         return ResponseEntity.ok(users);
     }
 
-
+    // Busca um usuário por ID, retornando seu DTO
     @GetMapping("/{id}")
     public ResponseEntity<UserResponseDTO> buscar(@PathVariable Long id) {
         UserResponseDTO responseDTO = userService.buscarPorId(id);

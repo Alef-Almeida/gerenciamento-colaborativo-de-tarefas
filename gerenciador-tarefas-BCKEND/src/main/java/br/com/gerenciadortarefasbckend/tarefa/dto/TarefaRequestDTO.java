@@ -8,15 +8,24 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
-@Data
+// Define a classe como um DTO para entrada de dados de tarefas
+@NoArgsConstructor // Gera construtor sem argumentos
+@AllArgsConstructor // Gera construtor com todos os argumentos
+@Builder // Gera um padrão Builder para criação de instâncias
+@Data // Gera getters, setters, toString, equals e hashCode
 public class TarefaRequestDTO {
+    // Título da tarefa
     private String titulo;
-    private String descricao;
-    private LocalDate dataEntrega;
-    private boolean finalizado;
-    private UserRequestDTO user;
 
+    // Descrição da tarefa
+    private String descricao;
+
+    // Data de entrega da tarefa
+    private LocalDate dataEntrega;
+
+    // Indica se a tarefa está finalizada
+    private boolean finalizado;
+
+    // Usuário associado à tarefa, representado como DTO
+    private UserRequestDTO user;
 }
