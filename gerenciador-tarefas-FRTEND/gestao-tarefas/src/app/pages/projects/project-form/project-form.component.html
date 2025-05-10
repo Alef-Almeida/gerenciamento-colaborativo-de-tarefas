@@ -1,0 +1,30 @@
+<h1>Formulário de Projeto</h1>
+<form #formRef (ngSubmit)="onSubmit()">
+  <div>
+    <label for="title">Title</label>
+    <input id="title" #titleRef required />
+  </div>
+
+  <div>
+    <label for="description">Description</label>
+    <textarea id="description" #descriptionRef></textarea>
+  </div>
+
+  <div>
+    <label for="deliveryDate">Delivery Date</label>
+    <input id="deliveryDate" type="date" #deliveryDateRef required />
+  </div>
+
+  <div>
+    <label for="status">Status</label>
+    <select id="status" #statusRef>
+      <option value="PENDING">Pending</option>
+      <option value="IN_PROGRESS">In Progress</option>
+      <option value="COMPLETED">Completed</option>
+    </select>
+  </div>
+
+  <button type="submit">
+    {{ isEditMode ? 'Update' : 'Create' }} Project
+  </button>
+</form>

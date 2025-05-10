@@ -1,0 +1,54 @@
+$primary-color: #2c3e50;
+$button-bg: #3498db;
+$button-hover-bg: #2980b9;
+$spacing: 10px;
+
+h2 {
+  color: $primary-color;
+  font-size: 24px;
+  margin-bottom: $spacing;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing;
+
+  div {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    input, select {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+  }
+
+  button {
+    padding: 8px 15px;
+    background-color: $button-bg;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: $spacing;
+
+    &:hover {
+      background-color: $button-hover-bg;
+    }
+
+    &[type="button"] {
+      background-color: #95a5a6;
+      &:hover {
+        background-color: #7f8c8d;
+      }
+    }
+  }
+}

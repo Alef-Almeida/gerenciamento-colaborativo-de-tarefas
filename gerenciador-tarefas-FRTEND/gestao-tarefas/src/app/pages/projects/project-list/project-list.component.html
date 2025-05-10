@@ -1,0 +1,8 @@
+<h2>Lista de Projetos</h2>
+<ul>
+  <li *ngFor="let project of projects">
+    {{ project.name }} - <button [routerLink]="['/projects', project.id, 'edit']">Editar</button>
+    <button [routerLink]="['/projects', project.id, 'tasks']">Ver Tarefas</button>
+  </li>
+</ul>
+<button [routerLink]="['/projects/new']">Novo Projeto</button>
